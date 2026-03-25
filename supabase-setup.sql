@@ -10,7 +10,8 @@ create table products (
   link        text,
   images      text[],
   sold        boolean default false,
-  created_at  timestamp with time zone default now()
+  created_at  timestamp with time zone default now(),
+  position    integer
 );
 
 -- ============================================================

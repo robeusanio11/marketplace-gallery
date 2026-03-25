@@ -8,6 +8,7 @@ export default async function ProductsPage() {
   const { data, error } = await supabase
     .from("products")
     .select("*")
+    .order("position", { ascending: true, nullsFirst: false })
     .order("created_at", { ascending: false });
 
   if (error) {

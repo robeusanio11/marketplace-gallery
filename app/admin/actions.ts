@@ -72,3 +72,16 @@ export async function updateProduct(
   revalidatePath("/admin");
   revalidatePath(`/product/${id}`);
 }
+
+export async function reorderProducts(orderedIds: string[]) {
+  const supabase = await createClient();
+
+  await Promise.all(
+    orderedIds.map((id, position) =>
+      supabase.from("products").update({ position }).eq("id", id)
+    )
+  );
+
+  revalidatePath("/");
+  revalidatePath("/admin");
+}

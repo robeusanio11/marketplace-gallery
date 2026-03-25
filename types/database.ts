@@ -12,6 +12,7 @@ export type Database = {
           images: string[] | null;
           sold: boolean;
           created_at: string;
+          position: number | null;
         };
         Insert: {
           id?: string;
@@ -23,6 +24,7 @@ export type Database = {
           images?: string[] | null;
           sold?: boolean;
           created_at?: string;
+          position?: number | null;
         };
         Update: {
           id?: string;
@@ -34,6 +36,7 @@ export type Database = {
           images?: string[] | null;
           sold?: boolean;
           created_at?: string;
+          position?: number | null;
         };
         Relationships: [];
       };

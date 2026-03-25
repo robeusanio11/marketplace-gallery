@@ -1,10 +1,17 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { Plus } from "lucide-react";
 import { buttonVariants } from "@/lib/button-variants";
 import { SignOutButton } from "@/components/admin/SignOutButton";
+import { createClient } from "@/lib/supabase-server";
 import { cn } from "@/lib/utils";
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) redirect("/login");
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b px-6 py-4 flex items-center justify-between gap-4">

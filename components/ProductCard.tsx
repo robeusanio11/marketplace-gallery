@@ -14,7 +14,7 @@ export function ProductCard({ product }: { product: Product }) {
 
   return (
     <Link href={`/product/${product.id}`}>
-      <Card className="h-full overflow-hidden transition-shadow hover:shadow-md cursor-pointer">
+      <Card className="h-full overflow-hidden transition-colors hover:border-primary border border-border cursor-pointer">
         <div className="relative aspect-[3/4] w-full bg-muted">
           {thumbnail ? (
             <Image
@@ -25,29 +25,29 @@ export function ProductCard({ product }: { product: Product }) {
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           ) : (
-            <div className="flex h-full items-center justify-center text-muted-foreground text-sm">
+            <div className="flex h-full items-center justify-center text-muted-foreground text-xs tracking-widest uppercase">
               No photo
             </div>
           )}
           {product.sold && (
-            <span className="absolute top-2 left-2 bg-destructive text-white text-sm font-bold px-3 py-1.5 rounded-full shadow">
+            <span className="absolute top-2 left-2 bg-foreground text-background text-xs font-bold tracking-widest uppercase px-2 py-1">
               SOLD
             </span>
           )}
         </div>
         <CardContent className="p-4 space-y-2">
           <div className="flex items-start justify-between gap-2">
-            <h2 className="font-semibold text-base leading-tight line-clamp-2">
+            <h2 className="font-heading font-bold text-sm tracking-wider uppercase leading-tight line-clamp-2">
               {product.title}
             </h2>
             {product.price && (
-              <Badge variant="secondary" className="shrink-0 text-sm font-semibold">
+              <span className="shrink-0 text-primary font-bold text-sm font-heading">
                 {product.price}
-              </Badge>
+              </span>
             )}
           </div>
           {truncatedDescription && (
-            <p className="text-sm text-muted-foreground leading-snug">
+            <p className="text-xs text-muted-foreground leading-snug">
               {truncatedDescription}
             </p>
           )}

@@ -97,7 +97,7 @@ export function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Ask about a listing or leave a message…"
-          rows={5}
+          rows={4}
           required
         />
       </div>

@@ -30,13 +30,13 @@ export default async function ProductPage({
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="border-b px-6 py-4">
+      <header className="border-b-2 border-border px-6 py-4">
         <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          href="/products"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back to listings
+          Back
         </Link>
       </header>
 
@@ -49,11 +49,11 @@ export default async function ProductPage({
           <div className="space-y-5">
             <div className="space-y-2">
               {product.sold && (
-                <Badge variant="destructive" className="text-sm">SOLD</Badge>
+                <span className="inline-block bg-foreground text-background text-xs font-bold tracking-widest uppercase px-2 py-1">SOLD</span>
               )}
-              <h1 className="text-2xl font-bold leading-tight">{product.title}</h1>
+              <h1 className="font-heading text-2xl font-bold uppercase tracking-wider leading-tight">{product.title}</h1>
               {product.price && (
-                <p className="text-2xl font-semibold text-foreground">{product.price}</p>
+                <p className="text-2xl font-bold font-heading text-primary">{product.price}</p>
               )}
             </div>
 

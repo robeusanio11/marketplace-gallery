@@ -35,9 +35,9 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
-      <Card className="w-full max-w-sm">
-        <CardHeader>
-          <CardTitle className="text-xl">Admin Sign In</CardTitle>
+      <Card className="w-full max-w-sm border-2 border-border shadow-lg bg-muted">
+        <CardHeader className="pb-2">
+          <CardTitle className="font-heading text-3xl font-bold uppercase tracking-wider">Admin Sign In</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -50,6 +50,7 @@ export default function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="email"
+                className="bg-white"
               />
             </div>
             <div className="space-y-1.5">
@@ -61,6 +62,7 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 autoComplete="current-password"
+                className="bg-white"
               />
             </div>
             {error && (

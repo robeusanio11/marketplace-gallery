@@ -29,7 +29,7 @@ export default async function ProductPage({
   const images = product.images ?? [];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="animate-page-in min-h-screen flex flex-col">
       <header className="border-b-2 border-border px-6 py-4">
         <Link
           href="/products"

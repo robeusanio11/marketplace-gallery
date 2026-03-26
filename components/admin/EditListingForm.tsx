@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
+import { CATEGORIES } from "@/lib/categories";
 import type { Product } from "@/types/database";
 
 type NewPhoto = { file: File; objectUrl: string };
@@ -33,6 +34,7 @@ export function EditListingForm({ product }: { product: Product }) {
   const [description, setDescription] = useState(product.description ?? "");
   const [contact, setContact] = useState(product.contact ?? "");
   const [link, setLink] = useState(product.link ?? "");
+  const [category, setCategory] = useState(product.category ?? "");
   const [sold, setSold] = useState(product.sold);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -98,6 +100,7 @@ export function EditListingForm({ product }: { product: Product }) {
           description: description.trim() || null,
           contact: contact.trim() || null,
           link: link.trim() || null,
+          category: category || null,
           sold,
         },
         finalImageUrls,
@@ -202,6 +205,22 @@ export function EditListingForm({ product }: { product: Product }) {
           onChange={(e) => setPrice(e.target.value)}
           placeholder="e.g. $80, Best offer, Free"
         />
+      </div>
+
+      {/* Category */}
+      <div className="space-y-1.5">
+        <Label htmlFor="category">Category <span className="text-muted-foreground font-normal">(optional)</span></Label>
+        <select
+          id="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="flex h-9 w-full border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+        >
+          <option value="">— None —</option>
+          {CATEGORIES.map((c) => (
+            <option key={c.value} value={c.value}>{c.label}</option>
+          ))}
+        </select>
       </div>
 
       {/* Description */}

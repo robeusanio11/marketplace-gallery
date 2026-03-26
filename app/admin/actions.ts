@@ -42,6 +42,7 @@ export async function updateProduct(
     contact: string | null;
     link: string | null;
     sold: boolean;
+    category: string | null;
   },
   finalImageUrls: string[],
   removedImageUrls: string[]

@@ -36,6 +36,11 @@ export function ProductCard({ product }: { product: Product }) {
           )}
         </div>
         <CardContent className="p-4 space-y-2">
+          {product.category && (
+            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground">
+              {product.category}
+            </p>
+          )}
           <div className="flex items-start justify-between gap-2">
             <h2 className="font-heading font-bold text-sm tracking-wider uppercase leading-tight line-clamp-2">
               {product.title}

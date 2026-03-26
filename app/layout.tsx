@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Oswald, Space_Grotesk } from "next/font/google";
+import { Oswald, Raleway } from "next/font/google";
 import "./globals.css";
 
 const oswald = Oswald({
@@ -8,7 +8,7 @@ const oswald = Oswald({
   weight: ["400", "500", "600", "700"],
 });
 
-const spaceGrotesk = Space_Grotesk({
+const raleway = Raleway({
   subsets: ["latin"],
   variable: "--font-sans",
   weight: ["300", "400", "500", "600", "700"],
@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`h-full antialiased ${oswald.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`h-full antialiased ${oswald.variable} ${raleway.variable}`}>
       <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );
